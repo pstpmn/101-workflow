@@ -19,7 +19,11 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
-          go-version: "go1.21"
+          go-version: "1.21.6" # You can specify any Go version you need
 
       - name: Run tests
-        run: go test -v ./...
+        run: |
+          if ! go test -v ./...; then
+            echo "Tests failed. Aborting commit."
+            exit 1
+          fi
