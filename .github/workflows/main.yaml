@@ -19,7 +19,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
-          go-version: "go1.21" # You can specify any Go version you need
+          go-version: "go1.21"
 
       - name: Run tests
         run: go test -v ./...
