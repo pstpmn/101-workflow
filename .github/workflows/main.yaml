@@ -22,10 +22,3 @@ jobs:
 
       - name: Run tests
         run: go test -v ./...
-
-      - name: Check test status
-        run: |
-          if [ $? -ne 0 ]; then
-            echo "::error::Tests failed. Cancelling workflow."
-            exit 1
-          fi
