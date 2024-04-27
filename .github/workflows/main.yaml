@@ -30,13 +30,3 @@ jobs:
           else
             echo "::set-output name=status::success"
           fi
-
-  # Add a separate job to handle the failed test case
-  handle-failed-test:
-    needs: build
-    if: ${{ needs.build.outputs.test == 'failure' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print error message
-        run: echo "Tests failed. Please fix the issues and try again."
-      # You can add more steps here, such as reverting the commit or preventing the push.
